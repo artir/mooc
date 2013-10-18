@@ -1,0 +1,46 @@
+%!TEX root = sigchi-sample.tex
+
+\section{Experimental Results}
+\label{sec:experiments}
+
+We evaluate our models using data from a Coursera course, \emph{Surviving Disruptive Technologies}, taught by Professor Hank Lucas. The seven-week course had 1665 users participating in the forums and 826 users completing the course with a nonzero score. 
+
+We conducted experiments that help us answer the following questions about learner engagement: (1) How effective are our models in predicting performance? (2) What are the key factors influencing learner performance in an online setting? \\
+
+To address the first question, we evaluate the performance of our models in predicting learner \emph{performance}. We use Area under ROC curve (AUC) for our evaluations. We use 10-fold cross-validation in our experiments, leaving out 10\% of the data for testing and rest for training phase, where the model weights are learned. We observe that the PSL model with the latent engagement variables performs better at predicting learner performance and also provides more understanding of reasons why the user did not perform. Table \ref{table:results} shows the AUC values for the PSL models discussed in Section \ref{sec:pslmodels}.
+
+\begin{table} [ht]
+\begin{tabular}{ccccc}
+\toprule
+& AUC-PR Pos. & AUC-PR Neg.& AUC-ROC & Kendall \\
+\midrule
+Simple PSL Model & 0.7323 & 0.5369 &0.6545 & 0.6545 \\
+PSL Model with Latent Variables &0.7506 & 0.5443 & 0.6755 &0.5660 \\
+\bottomrule
+\end{tabular}
+\caption{Performance of simple PSL model and PSL model with latent variables.}
+\label{table:results}
+\end{table}
+
+To address the second question, we examined weights our model learns for the different engagement variables in predicting performance. We see that the rules involving predicates -- \emph{postActivity}, \emph{voteActivity}, \emph{viewActivity} and \emph{reputation} gain a high weight in the simple learned model. In our second model, we observe that rules involving \emph{engagement\_active} predicts performance, while rules containing \emph{disengagement} gain a higher weight in predicting \emph{$\neg$ performance}.
+
+In addition to predicting performance, the engagement variables are helpful in interpreting the different facets of learner participation in the course. Of particular interest is the content of the posts made by learners and how it corresponds to the values predicted by the our model. Table \ref{table:examples} shows some examples of posts made by users and the engagement and performance scores predicted by the model. It is interesting to note that engaged learners post content with negative sentiment on the course, which may be perceived as participating in the course, for example, the first user in the Table \ref{table:examples}. While, disengaged learners may post similar content with negative sentiment, but a change in activity will help discern them from the engaged ones, e.g., the third user in Table \ref{table:examples}. 
+
+\begin{table} [ht]
+\begin{center}
+	\begin{tabular}{ p{1.75cm}p{2cm}p{9cm} }
+    \toprule
+\tiny{Engaged learner \newline (positive sentiment)} & \tiny{performance = 0.7508 \newline disengagement = 1.0} & \tiny{Prof. Lucas, Thank you for a great course! And thank you Coursera!} \\
+\tiny{Engaged learner \newline (negative sentiment)} & \tiny{performance = 0.8032 \newline disengagement = 1.0} & \tiny{I have also received a 9, the most disappointing thing
+is that I have only received good or passing comments from my peers, 3 of 5 did
+not post any comment about my work.}\\
+\tiny{Disengaged Learner \newline (negative sentiment)} & \tiny{performance = 0.5 \newline disengagement = 0.675} &\tiny{I agree completely. I used a lot of time on my assignment and got 7.5.  think the evaluation criteria were wrong, it shouldn't be rated on whether you have 3 or 4 innovations in your description but on a subjective measure (which is also flawed). Generally you should pass if it's obvious that you have followed the course and that you have tried to use the theories that the course has(to a certain degree ofc.).}\\
+\tiny{Disengaged Learner \newline (negative sentiment)} & \tiny{performance = 0.327 \newline disengagement = 1.0} &\tiny{The grades I received are ridiculous! One pointed out that the good point in my assignment was my fluency in English!!! Oh God!Another one told me that I used "general knowledge" for asking the questions. Yes, I've tried to use "general knowledge" for applying the theory so that it is useful (and not just a theory!).I've re-read my assignment and I still can't believe in my grade. Is it really fair?.}\\
+\tiny{Auditor} & \tiny{performance = 0.0 \newline disengagement = 1.0}& \tiny{This has been an otherwise fantastic course. Too bad the potential for success is so heavily weighted on two assignments.}\\
+    \bottomrule
+    \end{tabular}
+    \end{center}
+      \caption{Relevant forum content posted by users assigned different engagement labels by our model.}
+                    %\vspace{-1.0cm}
+  \label{table:examples}
+\end{table}

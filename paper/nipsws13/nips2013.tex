@@ -1,0 +1,89 @@
+\documentclass{article} % For LaTeX2e
+\usepackage{nips13submit_e,times}
+\usepackage{hyperref}
+\usepackage{url}
+\usepackage{amsmath}
+\usepackage{colortbl}
+\usepackage{graphicx}
+\usepackage{booktabs}
+%\documentstyle[nips13submit_09,times,art10]{article} % For LaTeX 2.09
+\newcommand{\blue}[1]{{\color{blue} #1}}
+\nipsfinaltrue
+\title{Modeling Learner Engagement in MOOCs \newline
+using Probabilistic Soft Logic}
+
+\author{Arti Ramesh, Dan Goldwasser, Bert Huang, Snigdha Chaturvedi, Hal Daum\'e III, Lise Getoor\\ Department of Computer Science, University of Maryland, MD, USA\\
+{\{artir, bert, snigdhac, hal, getoor\}@cs.umd.edu, goldwas1@umiacs.umd.edu}
+}
+
+%\author{
+%Arti Ramesh \\
+%Department of Computer Science \\
+%University of Maryland, College Park \\
+% Maryland 20742, USA\\
+%\texttt{artir@cs.umd.edu} \\
+%\AND
+%Dan Goldwasser \\
+%University of Maryland, College Park \\
+%Maryland 20742, USA \\
+%\texttt{goldwas1@umiacs.umd.edu} \\
+%\And
+%Bert Huang \\
+%Department of Computer Science \\
+%University of Maryland, College Park \\
+%Maryland 20742, USA \\
+%\texttt{bert@cs.umd.edu} \\
+%\And
+% Snigdha Chaturvedi\\
+%Department of Computer Science \\
+%University of Maryland, College Park \\
+%Maryland 20742, USA \\
+%\texttt{snigdhac@cs.umd.edu} \\
+%\And
+%Hal Daum\'e III \\
+%Department of Computer Science \\
+%University of Maryland, College Park \\
+%Maryland 20742, USA \\
+%\texttt{hal@cs.umd.edu} \\
+%\And
+%Lise Getoor \\
+%Department of Computer Science \\
+%University of Maryland, College Park \\
+%Maryland 20742, USA \\
+%\texttt{getoor@cs.umd.edu} \\
+%}
+
+% The \author macro works with any number of authors. There are two commands
+% used to separate the names and addresses of multiple authors: \And and \AND.
+%
+% Using \And between authors leaves it to \LaTeX{} to determine where to break
+% the lines. Using \AND forces a linebreak at that point. So, if \LaTeX{}
+% puts 3 of 4 authors names on the first line, and the last on the second
+% line, try using \AND instead of \And before the third author name.
+
+\newcommand{\fix}{\marginpar{FIX}}
+\newcommand{\new}{\marginpar{NEW}}
+
+%\nipsfinalcopy % Uncomment for camera-ready version
+
+\begin{document}
+
+
+\maketitle
+
+\begin{abstract}
+Massive open online courses (MOOCs)   attract  large number of student registrations,  but recent studies have shown that only a small fraction of these students complete their courses. Student dropouts are thus a major deterrent for the growth and success of MOOCs. We believe that understanding student engagement as a course progresses is essential for minimizing dropout rates.  Formally defining student engagement in an online setting is challenging.  In this paper,  we leverage   activity (such as posting in discussion forums, timely submission of assignments, etc.)  to identify two different forms of student engagement (passive and active) in MOOCs. We use \emph{probabilistic soft logic} (PSL) to model student engagement by capturing domain knowledge about student interactions and performance.  We test our models on MOOC data from Coursera and demonstrate that modeling engagement is helpful in predicting student performance.
+
+\end{abstract}
+
+\input{introduction}
+\input{relatedwork}
+\input{problem}
+\input{learner_engagement}
+\input{PSL_modeling}
+\input{results}
+\input{discussion}
+\input{references}
+
+
+\end{document}

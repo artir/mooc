@@ -1,0 +1,42 @@
+%!TEX root = nips2013.tex
+\section{Introduction}
+\label{sec:introduction}
+
+Massive open online courses (MOOCs) often boast of tens or hundreds of thousands of registrants, 
+but only a small fraction of these successfully complete their courses. 
+Even of those students who declare at the start of a course an intent to complete, 
+75\% did not (according to a recent Coursera study [1]). 
+Maintaining and cultivating student engagement is a prerequisite for MOOCs to have broad educational impact.   
+
+Unlike regular courses in which students engage with class materials in a structured and monitored way, 
+where instructors directly observe student behavior and obtain feedback, the distant nature 
+and the sheer size of an online course require new approaches for providing student feedback and guiding instructor intervention.
+  MOOCs provide a tantalizing opportunity for analyzing large-scale online interaction
+ and behavioral data to improve student engagement, outcomes, and overall experience. 
+   
+  To date, this opportunity is purely speculative: little work has truly exploited content (language), structure (social interactions),
+ and outcome data. One significant technical challenge is that to do so requires the ability to combine language analysis of forum posts 
+ with graph analysis over very large networks of entities (students, instructors, topics, assignments, quizzes, etc.) to perform predictive
+  modeling. To this end we use \emph{probabilistic soft logic} (PSL), a tool that provides an easy means to represent and combine the behavioral, 
+  linguistic and structural features in a concise manner.
+
+
+
+We follow the observation that quantifying and measuring \emph{engagement} is key to understanding learner participation in the course. 
+In MOOCs particularly, there are different notions of student engagement.
+Learners often engage in different aspects of the course throughout its duration. For example, some students engage in the social aspects of the online community by posting in forums, asking and answering questions; while others only watch lectures and take quizzes without interacting with the community.  
+
+Given the differences in perceived notions of engagement, it is important to identify engagement from MOOC data. 
+Unlike classroom courses where engagement can be observed in person, it is challenging to recognize and measure engagement in this online environment. 
+The online trace left by the learner, interactions with other learners/staff on the discussion forums, 
+language used by the learner in posts and completion of assessments are some of the activities which suggest learner engagement in the course. 
+
+In this work, we propose a model that uses learner behavioral features to distinguish between forms of engagement learners display in the course---passive or active---and use that to predict learner's performance. 
+We model learner engagement using PSL, characterizing several different types of learner engagement. Our model reasons about some types of learner engagement by formulating it as a latent variable that underlies learners' behavior. 
+
+We apply our model to real data collected from a Coursera course and show empirically that it captures behavioral patterns of learners relevant for 
+predicting their performance and engagement in the course. Interestingly, we find that modeling learner engagement helps in predicting learner performance.
+We also explore potential ways in which engagement predictions can be used to inform other aspects of online course participation, by observing the forum content
+posted by  engaged and disengaged learners.
+
+%The rest of the paper is organized as follows. We begin by discussing related work in Section \ref{sec:related work}.  We introduce our problem in Section \ref{sec:problem} and then describe our models for addressing it in Sections \ref{sec:psl} and \ref{sec:model1} and \ref{sec:model2} respectively. We describe our dataset and results in Sections \ref{sec:dataset} and \ref{sec:experiment} respectively. We discuss directions for future work and conclude our paper in Section \ref{sec:disc}.
